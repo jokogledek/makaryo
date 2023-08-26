@@ -18,6 +18,7 @@ type OrganizationData struct {
 }
 
 func main() {
+	inputFileName := "files/organizations-2000000.csv"
 	maxPool := 10
 	pool := pkg.WorkerPool{
 		MaxPool: maxPool,
@@ -27,6 +28,7 @@ func main() {
 		WorkerQueue: make(chan *interface{}, maxPool),
 	}
 	pool.InitWorkerPool()
+
 	pool.AddPayloadIntoQueue()
 }
 
